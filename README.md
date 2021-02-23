@@ -1,6 +1,6 @@
-# Hyperbee 🐝
+# DWebTree 🐝
 
-An append-only Btree running on a Hypercore.
+An append-only Btree running on a dDatabase.
 Allows sorted iteration and more.
 
 ```
@@ -10,8 +10,8 @@ npm install hyperbee
 ## Usage
 
 ``` js
-const Hyperbee = require('hyperbee')
-const db = new Hyperbee(feed, {
+const DWebTree = require('hyperbee')
+const db = new DWebTree(feed, {
   keyEncoding: 'utf-8', // can be set to undefined (binary), utf-8, ascii or and abstract-encoding
   valueEncoding: 'binary' // same options as above
 })
@@ -46,9 +46,9 @@ feed is downloaded to satisfy you queries.
 
 ## API
 
-#### `const db = new Hyperbee(feed, [options])`
+#### `const db = new DWebTree(feed, [options])`
 
-Make a new Hyperbee instance. `feed` should be a [Hypercore](https://github.com/hypercore-protocol/hypercore).
+Make a new DWebTree instance. `feed` should be a [dDatabase](https://github.com/protocol/hypercore).
 
 Options include:
 
@@ -70,7 +70,7 @@ than simply using a series of puts/dels on the db.
 #### `{ seq, key, value } = await db.get(key)`
 
 Get a key, value. If the key does not exist, `null` is returned.
-`seq` is the hypercore version at which this key was inserted.
+`seq` is the dDatabase version at which this key was inserted.
 
 #### `await db.del(key)`
 
@@ -173,7 +173,7 @@ Shorthand for getting a checkout for the current version.
 
 Create a sub-database where all entries will be prefixed by a given value.
 
-This makes it easy to create namespaces within a single Hyperbee.
+This makes it easy to create namespaces within a single DWebTree.
 
 Options include:
 ```js
@@ -186,7 +186,7 @@ Options include:
 
 For example:
 ```js
-const rootDb = new Hyperbee(core)
+const rootDb = new DWebTree(core)
 const subDb = rootDb.sub('a')
 
 // In rootDb, this will have the key ('a' + separator + 'b')

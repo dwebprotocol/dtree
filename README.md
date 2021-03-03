@@ -4,13 +4,13 @@ An append-only Btree running on a dDatabase.
 Allows sorted iteration and more.
 
 ```
-npm install hyperbee
+npm install dwebtree
 ```
 
 ## Usage
 
 ``` js
-const DWebTree = require('hyperbee')
+const DWebTree = require('dwebtree')
 const db = new DWebTree(feed, {
   keyEncoding: 'utf-8', // can be set to undefined (binary), utf-8, ascii or and abstract-encoding
   valueEncoding: 'binary' // same options as above
@@ -48,7 +48,7 @@ feed is downloaded to satisfy you queries.
 
 #### `const db = new DWebTree(feed, [options])`
 
-Make a new DWebTree instance. `feed` should be a [dDatabase](https://github.com/protocol/hypercore).
+Make a new DWebTree instance. `feed` should be a [dDatabase](https://github.com/dwebprotocol/ddatabase).
 
 Options include:
 

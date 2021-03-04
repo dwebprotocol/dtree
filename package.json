@@ -24,12 +24,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/dwebprotocol/dwebtree.git"
   },
   "author": "PeepsLabs <peepslabs@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/"
+    "url": "https://github.com/dwebprotocol/dwebtree/issues"
   },
   "homepage": "https://dwebx.org"
 }

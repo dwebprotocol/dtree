@@ -1,7 +1,7 @@
 const tape = require('tape')
 const { create, collect } = require('./helpers')
 
-const Hyperbee = require('..')
+const DWebTree = require('..')
 
 tape('out of bounds iterator', async function (t) {
   const db = create()
@@ -348,8 +348,8 @@ tape('cannot append to read-only db', async t => {
 })
 
 tape('feed is unwrapped in getter', async t => {
-  const feed = require('hypercore')(require('random-access-memory'))
-  const db = new Hyperbee(feed)
+  const feed = require('ddatabase')(require('random-access-memory'))
+  const db = new DWebTree(feed)
   await db.ready()
   t.same(feed, db.feed)
   t.end()

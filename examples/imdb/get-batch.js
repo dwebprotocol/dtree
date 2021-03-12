@@ -1,8 +1,8 @@
-const hypercore = require('hypercore')
-const Hyperb = require('../../')
-const db = new Hyperb(hypercore('./db-clone', '95c4bff66d3faa78cf8c70bd070089e5e25b4c9bcbbf6ce5eb98e47b3129ca93', { sparse: true }))
+const ddatabase = require('ddatabase')
+const DTree = require('../../')
+const db = new DTree(ddatabase('./db-clone', '95c4bff66d3faa78cf8c70bd070089e5e25b4c9bcbbf6ce5eb98e47b3129ca93', { sparse: true }))
 
-require('@hyperswarm/replicator')(db.feed, {
+require('@dswarm/replicator')(db.feed, {
   announce: true,
   lookup: true,
   live: true

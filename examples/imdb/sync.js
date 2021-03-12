@@ -1,9 +1,9 @@
-const Hyperb = require('../../')
-const hypercore = require('hypercore')
+const DTree = require('../../')
+const ddatabase = require('ddatabase')
 
-const db = new Hyperb(hypercore('./db', { sparse: true }))
+const db = new DTree(ddatabase('./db', { sparse: true }))
 
-require('@hyperswarm/replicator')(db.feed, {
+require('@dswarm/replicator')(db.feed, {
   announce: true,
   lookup: true,
   live: true

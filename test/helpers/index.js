@@ -1,4 +1,4 @@
-const Hyperbee = require('../../')
+const DWebTree = require('../../')
 
 module.exports = {
   toString,
@@ -68,6 +68,6 @@ async function toString (tree) {
 
 function create (opts) {
   opts = { keyEncoding: 'utf-8', valueEncoding: 'utf-8', ...opts }
-  const feed = require('hypercore')(require('random-access-memory'))
-  return new Hyperbee(feed, opts)
+  const feed = require('ddatabase')(require('random-access-memory'))
+  return new DWebTree(feed, opts)
 }

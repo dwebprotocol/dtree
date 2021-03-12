@@ -1,7 +1,7 @@
 const codecs = require('codecs')
 const { Readable } = require('streamx')
 const mutexify = require('mutexify/promise')
-const { toPromises, unwrap } = require('hypercore-promisifier')
+const { toPromises, unwrap } = require('@ddatabase/promisifier')
 
 const RangeIterator = require('./iterators/range')
 const HistoryIterator = require('./iterators/history')
@@ -266,7 +266,7 @@ class BatchEntry extends BlockEntry {
 }
 
 // small abstraction to track feed "get"s so they can be cancelled.
-// we might wanna fold something like this into hypercore
+// we might wanna fold something like this into dDatabase
 class ActiveRequests {
   constructor (feed) {
     this.feed = feed
@@ -322,7 +322,7 @@ class HyperBee {
     await this._feed.ready()
     if (this._feed.length > 0 || !this._feed.writable || this.readonly) return
     return this._feed.append(Header.encode({
-      protocol: 'hyperbee',
+      protocol: 'dwebtree',
       metadata: this.metadata
     }))
   }
@@ -496,7 +496,7 @@ class Batch {
   }
 
   async lock () {
-    if (this.tree.readonly) throw new Error('Hyperbee is marked as read-only')
+    if (this.tree.readonly) throw new Error('dWebTree is marked as read-only')
     if (this.locked === null) this.locked = await this.tree.lock()
   }
 

@@ -286,7 +286,7 @@ class ActiveRequests {
   }
 }
 
-class HyperBee {
+class DWebTree {
   constructor (feed, opts = {}) {
     this._feed = toPromises(feed)
 
@@ -439,7 +439,7 @@ class HyperBee {
   }
 
   checkout (version) {
-    return new HyperBee(this._feed, {
+    return new DWebTree(this._feed, {
       _ready: this.ready(),
       sep: this.sep,
       checkout: version,
@@ -462,7 +462,7 @@ class HyperBee {
     const valueEncoding = codecs(opts.valueEncoding || this.valueEncoding)
     const keyEncoding = codecs(opts.keyEncoding || this._unprefixedKeyEncoding)
 
-    return new HyperBee(this._feed, {
+    return new DWebTree(this._feed, {
       _ready: this.ready(),
       prefix,
       sep: this.sep,
@@ -885,4 +885,4 @@ function prefixEncoding (prefix, keyEncoding) {
 
 function noop () {}
 
-module.exports = HyperBee
+module.exports = DWebTree
